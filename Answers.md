@@ -78,7 +78,7 @@ js'de this bir anahtar kelimedir. Bunun direk olak bir cevabı yoktur diyebiliri
 * Arrow fonksiyonlar consturactor olarak kullanılamazlar yani new anahtar kelimesi ile oluşturamayız.
 
 ### 12. swich bloğu içinde hatasız nasıl değişken tanımlanır
-Soruda tam olarak ne denilmek istendiğini anlayamadım. 
+
 
 ### 13. Pure fonksiyon ne demektir açıklayınız
 Pure fonksiyon demek fonksiyonun davranış girdilere bağlıdır ve başka faktörlerden etkilenmeden içinde tanımlanan işlemleri yaparlar. Ayn girdiler ile çağrıldığında her zaman aynı çıktıyı üretirler. 
