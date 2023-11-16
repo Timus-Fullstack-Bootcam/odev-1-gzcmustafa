@@ -54,5 +54,56 @@ console.log(result); // NaN
 Global değişken , programın herhangi bir yerinden erişilebilen bir değişkendir diyebilirim. Bu global değişkenler programın genelde en üst düzeyinde tanımlanır.
 Örnek olarak; 2 ayrı isimde tanımlanmış bir fonksiyon düşünelim ve bu fonksiyonların dışında en yukarıda bir değişken tanımarsak, bu değişkene bu iki fonksiyondan da ulaşabiliriz. 
 
+### 8. Javascript’te this anahtar kelimesi nedir açıklayınız
+js'de this bir anahtar kelimedir. Bunun direk olak bir cevabı yoktur diyebilirim çünkü kullanıldığı bağlama göre anlamı değişkenlik gösterebilir. Genelde bir sınıf tanımladıktan sonra sınıfın içinde çokça kullanırız. Sınıf içinde kullandığımızda sınıfın örneğini temsil eder diyebiliriz ayrıca sınıfın içindeki metotlar ve özellikler bu anahtar kelime kullanılarak çalıştırılır. 
+
+### 9. == ile === farkını örnekler ile açıklayınız
+İkiside karşılaştırma operatörüdür.
+* == operatörü sadece değerleri karşılaştırır.
+* Dğerler eşitse true, yanlış ise false döner. 
+
+* === operatörü ise hem değerleri hemde veri tiplerini karşılaştırır.
+* Değerler ve türler her ikside eşitse true döner.
+#### not: === operatörünü kullanmak daha güvenlidir. 
+
+### 10. let var const farkını tablo yapınız
+|         | Kapsam (Scope)          | Yeniden tanımlama | Değiştirilebilirlik | İlk Değer Atama            |
+|---------|-------------------------|-------------------|---------------------|----------------------------|
+| let     | Blok                    | İzin verir        | İzin verir          | Atanabilir veya atanmaz   |
+| var     | Global ve Function      | İzin verir        | İzin verir          | undefined                  |
+| const   | Blok                    | İzin vermez       | İzin vermez         | Zorunlu                    |
+
+### 11. Arrow fonksiyonun normal fonksiyondan farkları nelerdir
+* Arrow fonksiyonlar daha kısa söz dizimine sahiptirler , normal fonksiyonlara göre
+* Arrow fonksiyonlar consturactor olarak kullanılamazlar yani new anahtar kelimesi ile oluşturamayız.
+
+### 12. swich bloğu içinde hatasız nasıl değişken tanımlanır
+Soruda tam olarak ne denilmek istendiğini anlayamadım. 
+
+### 13. Pure fonksiyon ne demektir açıklayınız
+Pure fonksiyon demek fonksiyonun davranış girdilere bağlıdır ve başka faktörlerden etkilenmeden içinde tanımlanan işlemleri yaparlar. Ayn girdiler ile çağrıldığında her zaman aynı çıktıyı üretirler. 
+
+### 14. Rest operatör nedir örnekle açıklayınız
+Rest operatörü üç nokta ile gösterilir. Bu operatörü hem dizilerde hemde fonksiyonlada kullanabiliriz. Fonksiyonlarda kullanınca , fonksiyonun parametrelerini toplu şekilde almak için , dizilerde kullanılıncada dizinin sahip olduğu tüm elamanları toplu almak için kullanılır.  
+
+
+### 15. Object destructuring nedir örnekle açıklayınız
+Ben önce destructuring kavramını açıklamak istiyorum.
+Destructuring = dizileri ve nesneleri paketinden çıkarmanın ve farklı bir değişkene atamanın yoldur diyebilirim. 
+* Objelerde örnek vermek gerekirse 
+* mesela bir objemiz olsun.
+```javascript
+// Obje destructuring
+const users= {
+    name: "Mustafa",
+    surname:"Gözcü",
+    age:"24"
+}
+
+//buradaki değerlere normalde 
+console.log(users.age) // şeklinde ulaşabiliriz fakat destructuring ile aşağıdaki şekilde ulaşabiliriz
+const {surname} = users
+console.log(surname)
+```
 
 
