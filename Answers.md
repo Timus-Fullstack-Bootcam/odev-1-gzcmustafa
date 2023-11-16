@@ -106,4 +106,41 @@ const {surname} = users
 console.log(surname)
 ```
 
+### 16. 2 elemanlı bir objeyi 6 farklı şekilde oluşturunuz
+Bu sorudan anladığım obje oluşturma çeşitleri istenmekte. Obje oluşturmak için birden fazla yol var JavaScript'de
+#### 1
+```javascript
+let names = {
+    name1="Mustafa"
+    name2="Ilgın"
+}
+```
+#### 2
+```javascript
+let names = new Object();
+names.name1="Mustafa"
+names.name2="Ilgın"
+```
+#### 3
+```javascript
+let names = Object.create({ name1="Mustafa" name2="Ilgın"})
+```
+#### 4
+```javascript
+let name1 = "Mustafa"
+let name2= "Ilgın"
+let names ={name1 , name2}
+```
+#### 5
+```javascript
+let names = Object.assign({},{name1="Mustafa",name2="Ilgın"})
+```
+#### 6 (Bu obje oluşturmaya girer mi bilmiyorum ama json dosylarını js objesine çevirirken kullandığımız parse metodu yani;)
+```javascript
+let names = {"name1":"Mustafa","name2":"Ilgın"}
+let newNames = JSON.parse(names);
+```
+
+
+
 
