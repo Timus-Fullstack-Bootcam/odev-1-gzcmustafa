@@ -141,6 +141,32 @@ let names = {"name1":"Mustafa","name2":"Ilgın"}
 let newNames = JSON.parse(names);
 ```
 
+### 17. 2 elemanlı bir objenin key ve value değerlerinin karakter sayısı ile 2 farklı döngü methodu kullanarak yeni bir obje oluşturunuz
+```javascript
+let names = {name1:"Mustafa", name2:"Ilgın"}
+let namNew = {}
+for (let x in names){
+    namNew[x] = names[x].length;
+}
+console.log(namNew)
+
+//2.yöntem
+const oldObject= {
+    key1:"value1",
+    key2:"value123445679"
+}
+const newObject = {};
+Object.keys(oldObject).forEach((key) => {
+    const value = oldObject[key]
+    const length = value.length
+    newObject[key]=length;
+})
+console.log(newObject)
+
+
+
+```
+
 
 
 
