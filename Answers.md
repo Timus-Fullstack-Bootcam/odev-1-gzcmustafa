@@ -162,11 +162,134 @@ Object.keys(oldObject).forEach((key) => {
     newObject[key]=length;
 })
 console.log(newObject)
+```
 
+### 18. Cookie, local storage ve session storage farkını tablo yapınız
+| Özellik               | Cookie                           | Local Storage                    | Session Storage                  |
+|-----------------------|----------------------------------|----------------------------------|----------------------------------|
+| **Saklama Süresi**    | Genellikle uzun süreli (ayarlanabilir) | Kalıcıdır (browser kapatılsa bile kalır) | Browser oturumu boyunca sürer   |
+| **Veri Boyutu**        | Küçük (4KB'e kadar)               | Genellikle büyük (5MB'e kadar)   | Genellikle büyük (5MB'e kadar)   |
+| **Veri Saklama Yeri**  | Tarayıcı ve sunucu arasında değişim | Tarayıcıda kalır                  | Tarayıcıda kalır                  |
+| **Veri Erişimi**       | Server ve client tarafında okunabilir | Sadece client tarafında okunabilir | Sadece client tarafında okunabilir |
+| **Kullanım Amacı**     | Oturum bilgileri, tercihler vb.    | Kalıcı veri depolama             | Oturum boyunca geçici veri depolama |
 
+### 19. asenkron ve senkron işlem farkı nedir
+Bu kavramlar her programlama dili için geçerlidir. 
+Senkron işlemler sırayla ve adım adım çalışan işlemlerdir yani bir işlem tamamlanmadan diğer işleme geçilmez.
+Asenkron işlemlerde ise herhangi bir sıra yoktur, işlemler birbirini beklemeden devam eder.
+
+### 20. promise nedir ve neden ihtiyaç duyarız
+Promise Js'de asenkron programlamayı daha etkili hale getirmek için kullanılan bir nesnedir. Promisler asenkron işlemleri daha yönetilebilir bir hale getirmeyi amaçlar.
+* Promise'nin 3 temel durumu vardır. 1) Pending 2)Fullfilled 3)Rejected
+
+### Array soruları
+
+```javascript
+// 1. dolap arrayindeki son elemanı silip consola yazdırın
+let removeElement = dolap.pop();
+console.log(dolap)
+console.log(removeElement)
+```
+```javascript
+// 2. dolap arrayindeki ilk elamanı silip yerine “Hat” elemanını gönderip consola yazdırın
+let removeFirstElement=dolap.shift()
+console.log(dolap)
+let addFirstElement = dolap.unshift("Hat")
+console.log(dolap)
+
+```
+```javascript
+// 3. dolap değişkeninin array olup olmadığını kontrol edin ve sonucu bir değişkene eşitleyin
+const type = Array.isArray(dolap)
+console.log(type)
+```
+```javascript
+// 4. dolap arrayinde “Pant” elemanın olup olmadığını 3 farklı method ile kontrol edin
+let find = dolap.find((element)=> element === Pant)
+console.log(find);
+
+find = dolap.indexOf("Pant")
+console.log(find)
+
+find = dolap.includes("Pant")
+
+```
+```javascript
+// 5. dolap arrayindeki elemanların karakter sayısını toplayıp geriye döndürecek
+// fonksiyonu yazın
+
+function elementLengthsFind (array) {
+    const elementLengths = array.map(a => a.length);
+    const totalElementLength = elementLengths.reduce((total,elementLengths) => total + elementLengths,0);
+    return totalElementLength;
+}
+const sonuc = elementLengthsFind(dolap)
+console.log(sonuc)
+```
+```javascript
+// 6. dolap arrayindki tüm elemanları büyük harfe çevirip yeni bir değişkene 3 farklı yöntemle atayın
+let yeniDolap1 = [];
+for (let i = 0; i < dolap.length; i++) {
+    yeniDolap1.push(dolap[i].toUpperCase());
+}
+console.log(yeniDolap1);
+let yeniDolap2 = dolap.map(item => item.toUpperCase());
+console.log(yeniDolap2);
+let yeniDolap3 = [];
+dolap.forEach(item => {
+    yeniDolap3.push(item.toUpperCase());
+});
+console.log(yeniDolap3);
+```
+```javascript
+// 7. dolap arrayini index sayıları key olacak şekilde objeye çeviriniz
+let dolapObjesi = {};
+dolap.forEach((item,index)=>{
+   dolapObjesi[index] = item;
+})
+console.log(dolapObjesi)
+
+```
+8. slice ile splice farkı nedir
+
+slice metodu, bir diziden belirli bir alt diziyi alarak yeni bir dizi oluşturur ve orijinal diziyi değiştirmez. Öte yandan, splice metodu, bir dizide belirli bir konumdan başlayarak öğeleri ekleyebilir, silebilir veya değiştirebilir, bu nedenle orijinal diziyi değiştirir.
+
+```javascript
+const arr = [1,2,3,4,5,6,7,7,8,6,10];
+// 1. arrayindeki yinelenen sayıları bulun
+function yinelenenSayiBul(arr){
+    return arr.filter((value,index,arr) => {
+        return arr.indexOf(value) != index;
+    })
+}
+let yinelenenler = yinelenenSayiBul(arr);
+console.log(yinelenenler)
+```
+```javascript
+// 2. arrayindeki tüm yinelenen sayıları silip yeni bir arrayi 2 farklı method ile oluşturun
+const uniqueArr1 = [...new Set(arr)];
+console.log(uniqueArr1);
+
+const uniqueArr2 = arr.filter((value, index, self) => self.indexOf(value) === index);
+console.log(uniqueArr2);
+```
+```javascript
+// 3. arrayindeki en yüksek ve en düşük değeri 2 farklı methodla bulun
+const max1 = Math.max(...arr);
+const min1 = Math.min(...arr);
+console.log("En Yüksek Değer (max1):", max1);
+console.log("En Düşük Değer (min1):", min1);
 
 ```
 
+* Kod Sorusu-1 Bu kodun çıktısı nedir neden ?
+Kodun çıktısı rejected durumu olacak çünkü reject fonksiyonu kullanılarak bu promise başarısızlık durumuna geçmiş. ilk then bloğu çalışmaz çünkü işlem başarsız durum oldu fakat then.catch zinciri olduğundan dolayı ilk catch çalışacak ama ondan sonraki then de çalışacak.
+
+* Kod Sorusu-2 
+Kod, başta başarıyla çalışan bir işlemi simgeliyor, sonra bir hata ('Defeat') oluyor ve  başka bir hata daha ('error') ortaya çıkıyor. Sonuç olarak, çıktı "success", "Defeat" ve "error" sırasıyla ekrana yazdırılıyor.
+success
+Defeat
+error
 
 
 
